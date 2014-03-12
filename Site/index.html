@@ -21,6 +21,8 @@
         <script type="text/javascript" src="js/swfobject.js"></script>
         <script type="text/javascript" src="js/sms_setup.js"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.1/js/foundation/foundation.offcanvas.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.1.0/js/foundation/foundation.dropdown.js"></script>
+        
  </head>
  <body>
     <nav class="top-bar inverse" data-topbar>
@@ -41,9 +43,21 @@
  
     <section class="top-bar-section">
       <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a href="#">Login</a></li>
-      </ul>
+      <a href="#" data-dropdown="login" class="right logLink">Login</a>
+        <div id="login" data-dropdown-content class="f-dropdown content">
+            <form>
+                <label>User</label>
+                <input></input>
+
+                <label>Password</label>
+                <button>Submit</button>
+            </form>
+        </div>
+
+        <a href="#" data-dropdown="drop2">Has Content Dropdown</a>
+<div id="drop2" data-dropdown-content class="f-dropdown content">
+  <p>Some text that people will think is awesome! Some text that people will think is awesome! Some text that people will think is awesome!</p>
+</div>
     </section>
   </nav>
  
