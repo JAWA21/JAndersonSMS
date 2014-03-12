@@ -80,7 +80,18 @@ font-family: 'Aldrich', sans-serif;
 	width: 640px;
 	height: 55px;
 	margin-bottom: 10px;
-	padding-bottom: 
+}
+
+.timeline{
+	float: left;
+	width: 405px;
+	padding-left: 15px;
+	padding-top: 10px;
+}
+
+#scrubbber a img{
+	position: relative;
+	z-index: 999;
 }
 
 .userCom img{
@@ -91,4 +102,8 @@ font-family: 'Aldrich', sans-serif;
 .userCom h5{
 	float: left;
 	padding-right: 5px;
+}
+
+.panel{
+	width: 640px;
 }
