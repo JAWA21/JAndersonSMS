@@ -1,0 +1,94 @@
+/*
+fonts
+font-family: 'Alfa Slab One', cursive;
+font-family: 'Droid Sans', sans-serif;
+font-family: 'Aldrich', sans-serif;
+*/
+
+.container{
+	background-color: #000;
+}
+
+.top-bar{
+	height: 95px;
+}
+
+.title-area{
+	width: 282px;
+}
+
+.name{
+	padding-left: 45px;
+}
+
+#decode{
+	color: #3485A3;
+	font-family: 'Aldrich', sans-serif;
+	font-size: 40px;
+}
+
+#station{
+	color: #555557;
+	font-family: 'Alfa Slab One', Times, serif;
+	font-size: 40px;
+	display: block;
+}
+
+#sidebar{
+	padding-top: 10px;
+}
+
+#leftControls{
+	float: left;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#rightControls{
+	float: right;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#rightControls{
+	padding-bottom: 10px;
+}
+
+#stop, #camera{
+	width: 50px;
+	height: 50px;
+}
+
+#play, #record, #volume{
+	width: 35px;
+	height: 35px;
+}
+
+#stop:hover, #camera:hover, #play:hover, #record:hover, #volume:hover{
+	background-color: #F6DC10;
+	min-height: 55px;
+	min-width: 40px;
+	padding: 5px;
+}
+
+/*#leftControls a:hover, #rightControls a:hover{
+	background-color: blue;
+}*/
+
+.video{
+	background-color: #8E8E8E;
+	width: 640px;
+	height: 55px;
+	margin-bottom: 10px;
+	padding-bottom: 
+}
+
+.userCom img{
+	float: left;
+	padding-right: 5px;
+}
+
+.userCom h5{
+	float: left;
+	padding-right: 5px;
+}
