@@ -1,0 +1,18 @@
+<a href="http://www.colourlovers.com/pattern/237440/Industrial" target="_blank"><img src="http://www.colourlovers.com/images/badges/n/237/237440_Industrial.png" style="width: 240px; height: 120px; border: 0 none;" alt="Industrial" /></a><br /><span style="font-size: 10px; color: #5e5e5e;"><a href="http://www.colourlovers.com/seamless-studio" target="_blank" style="font-size: 10px; color: #5e5e5e;">Vector Patterns</a> by <a href="http://www.colourlovers.com/" target="_blank" style="font-size: 10px; color: #5e5e5e;">COLOURlovers</a></span>
+
+
+Decode Station - translating code to be better understood. Your train has arrived.
+
+
+Benefits of eLearning: 
+	There are a lot of benefits to eLearning. First off students can study anywhere that has an internet connection, no matter what time it is. There is reduced travel time and cost. It is easier for eLearning to accommodate different learning styles by offering different methods of giving information out. Also it allows the student to skim over the information they already know and concentrate their time on new information.
+
+Challenges of eLearning:
+	People with poor motivation can have a hard time with eLearning because everything is put on the students shoulders to be accountable. This can be emphasized if there isn't daily routine that a traditional class will give. Students can also feel isolated from teachers and classmates, but the opposite is also true. 
+
+Design considerations: 
+	Given these benefits and challenges of eLearning, I have come up with a few design considerations for Decode Station. I have chosen a muted color palate, with yellow as a pop of color for CTA buttons. The less distractions given to the student, the better. I want the content to shine. Fonts I have chosen are easy to read on screens, and fit with the theme appropriately. 
+
+	Another design aspect of the application will be all the content will be easy to access, and if the student wants to jump ahead in the series, they can. Students are allowed to go as fast or as slow as they want. 
+
+	Also, because some people learn better with written directions movies will be transcribed.

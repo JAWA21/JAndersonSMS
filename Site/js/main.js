@@ -1,13 +1,17 @@
 //main.js
+//
+var play = "";
 
-$(document).ready(function(){
-	$('#play').on('click',function(){
-		console.log('play_clicked');
-		
-	});
-
+var flashReady = function(){
 	$('#stop').on('click',function(){
 		console.log('stop_clicked');
+		flash.playPause();
+	});
+
+	$('#play').on('click',function(){
+		console.log('play_clicked');
+		flash.connect('rtmp:/SMSServer');
+		play = true;
 	});
 
 	$('#volume').on('click',function(){
@@ -16,28 +20,45 @@ $(document).ready(function(){
 
 	$('#camera').on('click',function(){
 		console.log('camera_clicked');
+
+		cams = [];
+
+		flash.getCameras();
+
+		cams = cameras;
+
+		console.log(cams);
 	});
 
 	$('#record').on('click',function(){
 		console.log('record_clicked');
+
+		flash.startRecording()
 	});
-
-var flashReady = function(){
-
-	$( "#stop" ).mouseover(function() {
-  		$(this).css("background-color", "blue");
-	});
-
-	mediaPlayer.addEventListener('timeupdate', updateProgressBar, false);
-	
 };
 
-	function updateProgressBar() {
-	   var progressBar = $('#progress-bar');
-	   var percentage = Math.floor((100 / mediaPlayer.duration) *
-	   	mediaPlayer.currentTime);
-	   progressBar.value = percentage;
-	   progressBar.innerHTML = percentage + '% played';
-	};
+var connected = function(success,error){
+	if(success == true){
+			
+		console.log('success Im running');
+		
+		if(play = true){
+			flash.startPlaying('startrekintodarkness_vp6.flv');
+			
+		}
+	}
 
-});
+	if(success == false){
+		console.log('Ive failed.');
+		console.log(error);
+	}
+};
+
+var recordingError = function(message,code){
+	console.log('somethings up with recording ' + message);
+	console.log('code for recording error ' + code)
+}
+
+var globalError = function(message){
+	console.log('what went wrong???' + message);
+};
