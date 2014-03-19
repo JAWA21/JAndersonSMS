@@ -50,12 +50,12 @@ font-family: 'Aldrich', sans-serif;
 	margin-bottom: 10px;
 }
 
-#stop, #camera img{
+#stop img, #camera img{
 	width: 50px;
 	height: 50px;
 }
 
-#play, #record img, #volume img{
+#play img, #pause img{
 	width: 35px;
 	height: 35px;
 }
@@ -71,7 +71,7 @@ font-family: 'Aldrich', sans-serif;
 }
 
 
-#stop:hover, #camera:hover img, #play:hover, #record:hover img, #volume:hover img, #mic:hover img{
+#stop:hover img, #camera:hover img, #play:hover img, #record:hover img, #volume:hover img, #mic:hover img, #pause:hover img{
 	background-color: #F6DC10;
 	min-height: 55px;
 	min-width: 40px;

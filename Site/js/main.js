@@ -1,6 +1,6 @@
 //main.js
 //
-var play = "";
+var play = 0;
 var setVol = -1;
 var cams = [];
 var time = "";
@@ -19,22 +19,26 @@ var flashReady = function(){
 		flash.stopPlaying();
 	});
 
-	$('#play').on('click',function(e){
+	$('#leftControls').on('click', '#play',function(e){
 		e.preventDefault();
 		console.log('play_clicked');
 		play = 1;
-		flash.connect('rtmp:/SMSServer');
-		$('#play').replaceWith('<a  id="pause" href="#"><img src="img/pause.svg"></a>');
-
+		if(play = 1){
+			flash.connect('rtmp:/SMSServer');
+		}else if(play = 2){
+			flash.playPause();
+		}
+		
+		$('#play').replaceWith('<a id="pause" href="#"><img src="img/pause.svg"></a>');
 	});
 
-	$('#pause').on('click',function(e){
+	$('#leftControls').on('click', '#pause',function(e){
 		e.preventDefault();
 		console.log('pause_clicked');
-		//play = 0;
-		
-		$('#pause').replaceWith('<a id="play" href="#"><img  src="img/play.svg"></a>');
+		play = 2;
+
 		flash.playPause();
+		$('#pause').replaceWith('<a id="play" href="#"><img src="img/play.svg"></a>');
 	});
 	
 	$('#rightControls').on('click','#volume',function(e){
@@ -90,12 +94,11 @@ var flashReady = function(){
 	});
 
 
-	$('#record').on('click',function(e){
+	$('#rightControls').on('click', '#record',function(e){
 		e.preventDefault();
 		console.log('record_clicked');
 		
 		console.log(mic + cams);
-		record = 1;
 		flash.connect('rtmp:/SMSServer');
 		$('#record').replaceWith('<a id="recording" href="#"><img src="img/recording.svg"></a>');
 
@@ -106,8 +109,6 @@ var flashReady = function(){
 		console.log('recording_clicked');
 		
 		console.log(mic + cams);
-
-		record = 0;
 		flash.stopRecording();
 		$('#recording').replaceWith('<a id="record" href="#"><img src="img/record.svg"></a>');
 
@@ -121,14 +122,11 @@ var connected = function(success,error){
 		
 		if(play = 1){
 			flash.startPlaying('startrekintodarkness_vp6.flv');
-			//$('#play').replaceWith('<img src="img/pause.svg">');
-			//flash.playPause();
 		}
 
-		// if(record = 1){
-		// 	flash.startRecording("recording.flv",cams[0], mic[0]);
-		// }
-
+		if(play = 0){
+			flash.startRecording("recording.flv",cams[0], mic[0]);
+		}
 
 	}
 
