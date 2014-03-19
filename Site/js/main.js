@@ -3,9 +3,8 @@
 var play = 0;
 var setVol = -1;
 var cams = [];
-var time = "";
 
-var camera = [];
+var time = "";
 var mic = [];
 
 var filename = "";
@@ -80,8 +79,6 @@ var flashReady = function(){
 		cameras = flash.getCameras();
 
 		cams = cameras;
-
-		console.log(cameras);
 	});
 
 	$('#mic').on('click',function(e){
@@ -139,7 +136,7 @@ var connected = function(success,error){
 };
 
 var seekTime = function(time){
-
+	//scrubber equation goes here....
 }
 
 var recordingError = function(message,code){

@@ -46,8 +46,8 @@ font-family: 'Aldrich', sans-serif;
 
 #rightControls{
 	float: right;
-	padding-bottom: 10px;
-	margin-bottom: 10px;
+	margin-right: 5px;
+	margin-top: 5px;
 }
 
 #stop img, #camera img{
@@ -61,8 +61,8 @@ font-family: 'Aldrich', sans-serif;
 }
 
 #record img, #volume img, #mic img{
-	width: 25px;
-	height: 25px;
+	width: 20px;
+	height: 20px;
 }
 
 #camera img{
@@ -73,9 +73,9 @@ font-family: 'Aldrich', sans-serif;
 
 #stop:hover img, #camera:hover img, #play:hover img, #record:hover img, #volume:hover img, #mic:hover img, #pause:hover img{
 	background-color: #F6DC10;
-	min-height: 55px;
-	min-width: 40px;
-	padding: 5px;
+	height: 55px;
+	width: 40px;
+	padding: 1px;
 }
 
 
