@@ -10,6 +10,8 @@ var mic = [];
 var filename = "";
 var recorder = 0;
 
+var duration = "";
+
 
 var flashReady = function(){
 	$('#stop').on('click',function(e){
@@ -121,6 +123,7 @@ var connected = function(success,error){
 		
 		if(play == 1){
 			flash.startPlaying('startrekintodarkness_vp6.flv');
+			getDuration();
 		}
 
 		if(play == 0){
@@ -135,8 +138,19 @@ var connected = function(success,error){
 	}
 };
 
+var getDuration = function(){
+	console.log(duration);
+}
+
 var seekTime = function(time){
 	//scrubber equation goes here....
+	//width = 405px;
+	// currentTime = time
+
+	// var xPos = time / duration * 405px;
+
+	// var currentTime = xPos / 405px * duration;
+	// xPos = e.pageX - $(#scrubber).offset().left;
 }
 
 var recordingError = function(message,code){
