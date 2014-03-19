@@ -97,6 +97,8 @@ var flashReady = function(){
 	$('#rightControls').on('click', '#record',function(e){
 		e.preventDefault();
 		console.log('record_clicked');
+
+		play = 0;
 		
 		console.log(mic + cams);
 		flash.connect('rtmp:/SMSServer');
@@ -120,11 +122,11 @@ var connected = function(success,error){
 			
 		console.log('success Im running');
 		
-		if(play = 1){
+		if(play == 1){
 			flash.startPlaying('startrekintodarkness_vp6.flv');
 		}
 
-		if(play = 0){
+		if(play == 0){
 			flash.startRecording("recording.flv",cams[0], mic[0]);
 		}
 
