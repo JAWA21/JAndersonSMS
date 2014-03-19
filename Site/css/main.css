@@ -50,30 +50,34 @@ font-family: 'Aldrich', sans-serif;
 	margin-bottom: 10px;
 }
 
-#rightControls{
-	padding-bottom: 10px;
-}
-
-#stop, #camera{
+#stop, #camera img{
 	width: 50px;
 	height: 50px;
 }
 
-#play, #record, #volume{
+#play, #record img, #volume img{
 	width: 35px;
 	height: 35px;
 }
 
-#stop:hover, #camera:hover, #play:hover, #record:hover, #volume:hover{
+#record img, #volume img, #mic img{
+	width: 25px;
+	height: 25px;
+}
+
+#camera img{
+	width: 40px;
+	height: 40px;
+}
+
+
+#stop:hover, #camera:hover img, #play:hover, #record:hover img, #volume:hover img, #mic:hover img{
 	background-color: #F6DC10;
 	min-height: 55px;
 	min-width: 40px;
 	padding: 5px;
 }
 
-/*#leftControls a:hover, #rightControls a:hover{
-	background-color: blue;
-}*/
 
 .video{
 	background-color: #8E8E8E;
