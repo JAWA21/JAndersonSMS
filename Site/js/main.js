@@ -1,5 +1,5 @@
 //main.js
-//
+
 var play = 0;
 var setVol = -1;
 var cams = [];
@@ -10,16 +10,56 @@ var mic = [];
 var filename = "";
 var recorder = 0;
 
-var duration = "";
+var dur = 0;
+var seek = 0;
+var xPos = 0;
+var width = 405;
+var scrubberOffset = $('#scrubber a').offset();
+var scrubbing = false;
 
+
+// FirebaseSimpleLogin demo instantiation
+var commentsRef = new Firebase("https://decode.firebaseIO.com");
+var auth = new FirebaseSimpleLogin(commentsRef, function(error, user) {
+	if (error) {
+	// an error occurred while attempting login
+	alert(error);
+	} else if (user) {
+	// user authenticated with Firebase
+	alert('User ID: ' + user.id + ', Provider: ' + user.provider);
+
+	$('.top-bar-section div').replaceWith('<a id="" href="javascript:logout();">Logout</a>');
+
+	console.log(user);
+	// Log out so we can log in again with a different provider.
+	auth.logout();
+	} else {
+	// user is logged out
+	}
+});
+
+// login to firebase
+function login(provider) {
+  	console.log('running');
+	auth.login(provider);
+} 
+
+// logout of firebase
+function logout(){
+	console.log('running logout fn');
+	auth.logout();
+}
 
 var flashReady = function(){
+
+	// stop btn
 	$('#stop').on('click',function(e){
 		e.preventDefault();
 		console.log('stop_clicked');
 		flash.stopPlaying();
 	});
 
+	// play and connect to server
 	$('#leftControls').on('click', '#play',function(e){
 		e.preventDefault();
 		console.log('play_clicked');
@@ -33,6 +73,7 @@ var flashReady = function(){
 		$('#play').replaceWith('<a id="pause" href="#"><img src="img/pause.svg"></a>');
 	});
 
+	// pause control
 	$('#leftControls').on('click', '#pause',function(e){
 		e.preventDefault();
 		console.log('pause_clicked');
@@ -42,6 +83,7 @@ var flashReady = function(){
 		$('#pause').replaceWith('<a id="play" href="#"><img src="img/play.svg"></a>');
 	});
 	
+	// set up volume control
 	$('#rightControls').on('click','#volume',function(e){
 		console.log('volume_clicked');
 		var vol = flash.getVolume();
@@ -73,7 +115,7 @@ var flashReady = function(){
 		console.log('setvol ' + setVol);
 	});
 
-
+	// getting cameras
 	$('#camera').on('click',function(e){
 		console.log('camera_clicked');
 		e.preventDefault();
@@ -83,6 +125,7 @@ var flashReady = function(){
 		cams = cameras;
 	});
 
+	// getting mics
 	$('#mic').on('click',function(e){
 		e.preventDefault();
 		console.log('mic_clicked');
@@ -92,7 +135,7 @@ var flashReady = function(){
 		mic = microphones[0];
 	});
 
-
+	// start recording
 	$('#rightControls').on('click', '#record',function(e){
 		e.preventDefault();
 		console.log('record_clicked');
@@ -105,6 +148,7 @@ var flashReady = function(){
 
 	});
 
+	// recording controls stop recording
 	$('#rightControls').on('click','#recording',function(e){
 		e.preventDefault();
 		console.log('recording_clicked');
@@ -116,6 +160,7 @@ var flashReady = function(){
 	});
 };
 
+// connected to the red5 server
 var connected = function(success,error){
 	if(success == true){
 			
@@ -138,20 +183,51 @@ var connected = function(success,error){
 	}
 };
 
-var getDuration = function(){
-	console.log(duration);
+// getting the duration of the movie
+var getDuration = function(duration){
+	dur = duration;
 }
 
 var seekTime = function(time){
 	//scrubber equation goes here....
-	//width = 405px;
-	// currentTime = time
 
-	// var xPos = time / duration * 405px;
+	seek = time;
 
-	// var currentTime = xPos / 405px * duration;
-	// xPos = e.pageX - $(#scrubber).offset().left;
+    if(play === 1){
+        moving();
+    };
 }
+
+$('#scrubber a').mousedown(function(e){
+    scrubbing = true;
+    $('#scrubber').mousemove(function(e){
+        if(e.pageX <= (scrubberOffset.left + width - 10)){
+            $('#scrubber a').offset({left: e.pageX});
+        }
+    });
+    e.preventDefault();
+});
+
+$('#scrubber a').mouseup(function(e){
+
+    var currentX = $('#scrubber a').position();
+    var time = (currentX.left / width) * dur;
+
+    flash.setTime(time);
+
+    $('#scrubber').off('mousemove');
+    scrubbing = false;
+
+});
+
+var moving = function(){
+
+    if(scrubbing === false){
+        xPos = (seek / dur) * width;
+        $('#scrubber a').offset({left: xPos + scrubberOffset.left});
+    }
+
+};
 
 var recordingError = function(message,code){
 	console.log('somethings up with recording ' + message);
