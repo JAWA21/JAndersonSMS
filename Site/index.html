@@ -42,9 +42,16 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <div>
-      <a href="javascript:login('google');" class="right logLink">Google</a>
-      <br />
-      <a href="javascript:login('github');" class="right logLink">Github</a>  
+      
+        <div class="clearfix loginLink">
+        <ul class="right">
+          <li><p class="loginRef">Login:</p></li>
+          <li><a href="javascript:login('google');" class="right logLink">Google</a></li>
+          <li><a href="javascript:login('github');" class="right logLink">Github</a></li>
+        </ul>
+       
+          
+        </div>
       </div>
     </section>
   </nav>
@@ -107,29 +114,13 @@
         </section>
         <section class="section">
           <h5 class="title">Comments</h5>
-          <div class="panel" >
-            <!-- user img -->
-            <div class="userCom">
-                <img src="img/user.jpg" width="50" height="50">
-                 <h5>User03</h5>
-                <!-- date -->
-                <p> 03/11/2014</p>
-            </div>
-            
-            <p>Blah blah blah blah this is AWKAWESOME!</p>
+          <div class="panel userCom" >
           </div>
-
-          <div class="panel" >
-            <!-- user img -->
-            <div class="userCom">
-                <img id="userPic" src="img/user.jpg" width="50" height="50">
-                 <h5>User03</h5>
-                <!-- date -->
-                <p> 03/11/2014</p>
-            </div>
-            
-            <p>More awesome comments from User03. This site is awesome!!! Learning so much already.</p>
-          </div>
+          <form id="addit">
+          <textarea id="msgarea" placeholder="Comment on something"></textarea>
+          <button type="submit" class="commentBtn btn tiny">Comment</button>
+          </form>
+          
         </section>
       </div>
     </div>
@@ -141,13 +132,12 @@
  
  
     <div id="sidebar" class="large-3 columns">
-      <h5>Description</h5>
-      <!-- Clicking this placeholder fires the mapModal Reveal modal -->
+      <h5><b>Description</b></h5>
       <p>
-        
+        Decode Station - translating code to be better understood. We deliver high quality video and written tutorials on web development.
       </p>
       <p>
-      
+        Your train has arrived. Hop aboard.
       </p>
     </div>
     <!-- End Sidebar -->

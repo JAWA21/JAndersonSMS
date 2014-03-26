@@ -21,6 +21,24 @@ font-family: 'Aldrich', sans-serif;
 	padding-left: 45px;
 }
 
+.loginRef{
+	margin-right: 15px;
+	margin-top: 10px;
+	color: #ccc;
+}
+
+.loginLink{
+	margin-top: 10px;
+}
+
+.loginLink ul{
+	display: block;
+}
+
+.loginLink ul li{
+	text-decoration: none;
+}
+
 #decode{
 	color: #3485A3;
 	font-family: 'Aldrich', sans-serif;
@@ -101,29 +119,32 @@ font-family: 'Aldrich', sans-serif;
 .userCom img{
 	float: left;
 	padding-right: 5px;
+	width: 50px;
+	height: 50px;
+	padding-bottom: 10px;
 }
 
-.userCom h5{
-	float: left;
-	padding-right: 5px;
+.usercom div{
+	padding-bottom: 100px;
 }
 
 .panel{
 	width: 640px;
+	min-height: 40px;
 }
 
-
-#progress-bar {
-  background-color: whiteSmoke;
-  border-radius: 2px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25) inset;
-
-  width: 400px;
-  height: 35px;
-  
-  position: relative;
-  display: block;
+input[type="text"],
+#msgarea {
+    width:640px;
+    padding: 0;
+    border: 1px solid #ccc;
 }
+
+.commentBtn{
+	margin-left: 553px;
+	margin-top: 5px;
+}
+
   
 /*.progress-bar > span {
   background-color: yellow;

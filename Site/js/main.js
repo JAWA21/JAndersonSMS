@@ -10,6 +10,10 @@ var mic = [];
 var filename = "";
 var recorder = 0;
 
+var flogin = false;
+var fuser = "";
+var userPic = "";
+
 var dur = 0;
 var seek = 0;
 var xPos = 0;
@@ -18,7 +22,7 @@ var scrubberOffset = $('#scrubber a').offset();
 var scrubbing = false;
 
 
-// FirebaseSimpleLogin demo instantiation
+// FirebaseSimpleLogin 
 var commentsRef = new Firebase("https://decode.firebaseIO.com");
 var auth = new FirebaseSimpleLogin(commentsRef, function(error, user) {
 	if (error) {
@@ -28,9 +32,10 @@ var auth = new FirebaseSimpleLogin(commentsRef, function(error, user) {
 	// user authenticated with Firebase
 	alert('User ID: ' + user.id + ', Provider: ' + user.provider);
 
-	$('.top-bar-section div').replaceWith('<a id="" href="javascript:logout();">Logout</a>');
+	$('.top-bar-section div p').replaceWith('<a class="right" href="javascript:logout();">Logout</a>');
 
-	console.log(user);
+	fuser = user;
+	console.log(fuser);
 	// Log out so we can log in again with a different provider.
 	auth.logout();
 	} else {
@@ -41,15 +46,59 @@ var auth = new FirebaseSimpleLogin(commentsRef, function(error, user) {
 // login to firebase
 function login(provider) {
   	console.log('running');
+  	flogin = true;
 	auth.login(provider);
 } 
 
 // logout of firebase
 function logout(){
 	console.log('running logout fn');
+	flogin = false;
 	auth.logout();
 }
 
+var picture = "";
+// comments btn
+$('#addit').submit(function(e){
+	e.preventDefault();
+	console.log('submitted');
+
+	//get the values from the page
+	var $form = $(this),
+		text = $form.find("textarea").val(),
+		url = $form.attr("action");
+		
+	if(fuser.provider === "google"){
+		picture = fuser.picture;
+		name = fuser.displayName;
+	}
+
+	if(fuser.provider === "github"){
+		picture = fuser.avatar_url;
+		name = fuser.login;
+	}
+
+	// And then we write data to firebase:
+	commentsRef.push({name: name, text:text, picture:picture});
+	$('#msgarea').val('');
+});
+
+
+commentsRef.on('child_added', function(snapshot) {
+  	var message = snapshot.val();
+  	console.log(message);
+	displayChatMessage(message.name, message.text, message.picture);
+});
+
+function displayChatMessage(name, text, picture) {
+	console.log("display " + text);
+
+	$('<div/>').text(text).prepend($('<em/>').text(name+': ')).prepend($("<img/>").attr('src', picture)).appendTo($('.userCom'));
+	$('.userCom').append('<div class="clearfix"></div>');
+	$('.userCom')[0].scrollTop = $('.userCom')[0].scrollHeight;
+};
+
+// set up flash
 var flashReady = function(){
 
 	// stop btn
